@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import './WelcomeForm.scss';
+
 
 class WelcomeForm extends Component {
   constructor() {
@@ -7,17 +9,25 @@ class WelcomeForm extends Component {
       currentName: '',
       currentQuote: '',
       currentRank: 'padawan',
+      errorMsg: 'invisibleError'
     };
   }
 
-  handleChange(key, value) {
+  handleChange = (key, value) => {
     this.setState({[key]: value});
     console.log(this.state)
   }
 
+  errorCheck = () => {
+    const { currentName, currentQuote } = this.state;
+    if (currentName === '' || currentQuote === '') {
+      this.setState({errorMsg: 'visibleError'});
+    } 
+  }
+
   render() {
     return(
-      <form>
+      <form className='main'>
         <label>Name</label>
         <input 
           placeholder='Galactic Identifier' 
@@ -38,7 +48,8 @@ class WelcomeForm extends Component {
           <option value='jediknight'>Jedi Knight</option>
           <option value='jedimaster'>Jedi Master</option>
         </select>
-        <button>Enter, you must!</button>
+        <button type='button' onClick={this.errorCheck}>Enter, you will!</button>
+        <p className={this.state.errorMsg}>Enter all forms correctly, you must!</p>
       </form>
     )
   }
