@@ -1,0 +1,10 @@
+@import '../App/App.scss';
+
+.visibleError {
+  font-family: $main-font;
+  color: RED;
+}
+
+.invisibleError {
+  visibility: hidden;
+}
