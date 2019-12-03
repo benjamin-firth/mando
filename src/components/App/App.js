@@ -21,7 +21,6 @@ class App extends Component {
 
   changePage = (page) => {
     this.setState({currentPage: page});
-    console.log(this.state);
   }
 
   renderLandingPage = () => {
@@ -38,7 +37,6 @@ class App extends Component {
   }
 
   renderMoviePage = () => {
-    console.log(this.state);
     return (
       <div className="App">
         <header className="App-header">
