@@ -3,8 +3,8 @@ import './WelcomeForm.scss';
 
 
 class WelcomeForm extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       currentName: '',
       currentQuote: '',
@@ -22,7 +22,9 @@ class WelcomeForm extends Component {
     const { currentName, currentQuote } = this.state;
     if (currentName === '' || currentQuote === '') {
       this.setState({errorMsg: 'visibleError'});
-    } 
+    } else {
+      this.props.changePage('MoviePage');
+    }
   }
 
   render() {
