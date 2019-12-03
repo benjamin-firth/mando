@@ -8,7 +8,15 @@ class App extends Component {
     super();
     this.state = {
       currentPage: 'WelcomeForm',
+      filmData: []
     };
+  }
+  componentDidMount() {
+    fetch('https://swapi.co/api/films/')
+    .then(response => response.json())
+    .then(data => {
+      this.setState({ filmData: data.results });
+    })
   }
 
   changePage = (page) => {
@@ -30,6 +38,7 @@ class App extends Component {
   }
 
   renderMoviePage = () => {
+    console.log(this.state);
     return (
       <div className="App">
         <header className="App-header">
@@ -37,7 +46,7 @@ class App extends Component {
             MANDO
           </h1>
         </header>
-        <MoviePage changePage={this.changePage}/>
+        <MoviePage filmData={this.state.filmData} changePage={this.changePage}/>
       </div>
     );
   }
