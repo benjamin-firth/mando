@@ -1,0 +1,62 @@
+$main-font: 'Stardos Stencil', cursive;
+$font-color1: white;
+$font-color2: #7B7B7B;
+
+$secondary-background-color: #282727;
+
+@mixin new-background($url) {
+  height: 100vh;
+  width: 100vw;
+  background: no-repeat url($url);
+  background-size: cover;
+}
+
+.App {
+  text-align: center;
+  min-height: 100vh;
+  font-family: $main-font;
+  @include new-background('https://cdn.wallpapersafari.com/99/76/OUBgR0.png')
+}
+
+.App-header {
+  background-color: black;
+  height: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 3em;
+  color: $font-color1;
+}
+
+.main {
+  color: $font-color1;
+}
+
+.movie {
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  margin-top: 20px;
+  width: 80vw;
+  height: 20vh;
+  background-color: $secondary-background-color;
+  div {
+    padding: 0% 3%;
+    width: 50vw;
+    text-align: left;
+    button {
+      background-color: black;
+      color: white;
+      width: 40vw;
+      font-weight: bold;
+      padding: 0%;
+    }
+  }
+  .movie-picture {
+    height: 20vh;
+    width: 30vw;
+    object-fit: cover;
+    border-left: 2px solid yellow;
+  }
+}
