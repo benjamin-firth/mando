@@ -21,8 +21,8 @@ class App extends Component {
     })
   }
 
-  changePage = (page) => {
-    this.setState({currentPage: page});
+  changePage = (page, userObj) => {
+    this.setState({currentPage: page, currentUser: userObj});
   }
 
   renderLandingPage = () => {

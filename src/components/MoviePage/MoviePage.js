@@ -29,7 +29,6 @@ const MoviePage = ({ filmData }) => {
 
   return (
     <section className="main">
-      Waddup - Here's the container for movies
       {movies}
     </section>
   )

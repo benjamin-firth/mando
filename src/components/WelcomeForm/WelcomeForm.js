@@ -18,11 +18,16 @@ class WelcomeForm extends Component {
   }
 
   errorCheck = () => {
-    const { currentName, currentQuote } = this.state;
+    const { currentName, currentQuote, currentRank } = this.state;
     if (currentName === '' || currentQuote === '') {
       this.setState({errorMsg: 'visibleError'});
     } else {
-      this.props.changePage('MoviePage');
+      let userObj = {
+        name: currentName,
+        quote: currentQuote,
+        rank: currentRank
+      }
+      this.props.changePage('MoviePage', userObj);
     }
   }
 
