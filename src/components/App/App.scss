@@ -1,7 +1,6 @@
 $main-font: 'Stardos Stencil', cursive;
 $font-color1: white;
 $font-color2: #7B7B7B;
-
 $secondary-background-color: #282727;
 
 @mixin new-background($url) {
@@ -15,7 +14,7 @@ $secondary-background-color: #282727;
   text-align: center;
   min-height: 100vh;
   font-family: $main-font;
-  @include new-background('https://cdn.wallpapersafari.com/99/76/OUBgR0.png')
+  @include new-background('https://cdn.wallpapersafari.com/99/76/OUBgR0.png');
 }
 
 .App-header {
@@ -29,8 +28,44 @@ $secondary-background-color: #282727;
   color: $font-color1;
 }
 
+.welcome {
+  text-align: center;
+  min-height: 100vh;
+  font-family: $main-font;
+  @include new-background('https://cdn.hipwallpaper.com/i/15/46/V3fBjM.jpg');
+}
+
 .main {
   color: $font-color1;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: auto;
+  margin-top: 20px;
+  width: 53vw;
+  height: 60vh;
+  background-color: $secondary-background-color;
+  padding: 2% 12%;
+  input,
+  select,
+  button {
+    width: 100%;
+    margin-bottom: 5%;
+  }
+  button {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    padding: 0%;
+    height: 5vh;
+  }
+  img {
+    height: 30%;
+    width: 20%;
+  }
 }
 
 .movie {
@@ -51,6 +86,7 @@ $secondary-background-color: #282727;
       width: 40vw;
       font-weight: bold;
       padding: 0%;
+      height: 5vh;
     }
   }
   .movie-picture {
