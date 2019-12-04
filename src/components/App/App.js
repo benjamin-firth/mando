@@ -11,7 +11,7 @@ class App extends Component {
       filmData: []
     };
   }
-  
+
   componentDidMount() {
     fetch('https://swapi.co/api/films/')
     .then(response => response.json())
@@ -55,6 +55,7 @@ class App extends Component {
     if (currentPage === 'WelcomeForm') {
       return this.renderLandingPage();
     } else if (currentPage === 'MoviePage') {
+      console.log(this.state.filmData);
       return this.renderMoviePage();
     }
   }
