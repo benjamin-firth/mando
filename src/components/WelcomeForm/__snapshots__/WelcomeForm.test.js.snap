@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Welcome Form should match the snapshot 1`] = `
+<form
+  className="main login"
+>
+  <label>
+    Name
+  </label>
+  <input
+    name="currentName"
+    onChange={[Function]}
+    placeholder="Galactic Identifier"
+  />
+  <label>
+    Quote
+  </label>
+  <input
+    name="currentQuote"
+    onChange={[Function]}
+    placeholder="Do or do not, there is no try."
+  />
+  <label>
+    Experience Level
+  </label>
+  <select
+    name="currentRank"
+    onChange={[Function]}
+  >
+    <option
+      value="padawan"
+    >
+      Padawan
+    </option>
+    <option
+      value="jediknight"
+    >
+      Jedi Knight
+    </option>
+    <option
+      value="jedimaster"
+    >
+      Jedi Master
+    </option>
+  </select>
+  <button
+    onClick={[Function]}
+    type="button"
+  >
+    Enter, you will!
+  </button>
+  <p
+    className="invisibleError"
+  >
+    Enter all forms correctly, you must!
+  </p>
+  <img
+    alt="Yoda shows up when login is invalid"
+    className="invisibleError"
+    src="https://1.bp.blogspot.com/-2zleuWnMiP4/XdmjP70dUPI/AAAAAAAAAZw/ZXK_NaTLn-cvCP7VIEHxNsA7zcaqEt6nACLcBGAsYHQ/s1600/baby-yoda-by-leo-batic.jpg"
+  />
+</form>
+`;
