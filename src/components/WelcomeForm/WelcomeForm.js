@@ -29,22 +29,22 @@ class WelcomeForm extends Component {
 
   render() {
     return(
-      <form className='main'>
+      <form className='main login'>
         <label>Name</label>
-        <input 
-          placeholder='Galactic Identifier' 
-          name='currentName' 
+        <input
+          placeholder='Galactic Identifier'
+          name='currentName'
           onChange={(e) => this.handleChange(e.target.name, e.target.value)}>
         </input>
         <label>Quote</label>
-        <input 
+        <input
           placeholder='Do or do not, there is no try.'
           name='currentQuote'
           onChange={(e) => this.handleChange(e.target.name, e.target.value)}>
         </input>
         <label>Experience Level</label>
-        <select 
-          name='currentRank' 
+        <select
+          name='currentRank'
           onChange={(e) => this.handleChange(e.target.name, e.target.value)}>
           <option value='padawan'>Padawan</option>
           <option value='jediknight'>Jedi Knight</option>
