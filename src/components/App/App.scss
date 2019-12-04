@@ -4,8 +4,6 @@ $font-color2: #7B7B7B;
 $secondary-background-color: #282727;
 
 @mixin new-background($url) {
-  height: 100vh;
-  width: 100vw;
   background: no-repeat url($url);
   background-size: cover;
 }
@@ -13,6 +11,7 @@ $secondary-background-color: #282727;
 .App {
   text-align: center;
   min-height: 100vh;
+  padding-bottom: 3vh;
   font-family: $main-font;
   @include new-background('https://cdn.wallpapersafari.com/99/76/OUBgR0.png');
 }
@@ -74,10 +73,9 @@ $secondary-background-color: #282727;
   margin: auto;
   margin-top: 20px;
   width: 80vw;
-  height: 20vh;
+  height: auto;
   background-color: $secondary-background-color;
   div {
-    padding: 0% 3%;
     width: 50vw;
     text-align: left;
     button {
@@ -85,12 +83,12 @@ $secondary-background-color: #282727;
       color: white;
       width: 40vw;
       font-weight: bold;
-      padding: 0%;
+      display: inline-block;
       height: 5vh;
     }
   }
   .movie-picture {
-    height: 20vh;
+    height: inherit;
     width: 30vw;
     object-fit: cover;
     border-left: 2px solid yellow;

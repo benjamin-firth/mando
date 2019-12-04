@@ -15,7 +15,6 @@ class WelcomeForm extends Component {
 
   handleChange = (key, value) => {
     this.setState({[key]: value});
-    console.log(this.state)
   }
 
   errorCheck = () => {
