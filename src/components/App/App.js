@@ -11,6 +11,7 @@ class App extends Component {
       filmData: []
     };
   }
+  
   componentDidMount() {
     fetch('https://swapi.co/api/films/')
     .then(response => response.json())
