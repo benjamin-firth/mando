@@ -12,7 +12,7 @@ const images = {
   7: 'http://rwrant.co.za/wp-content/uploads/2014/02/Star-Wars-7.jpg'
 }
 
-const MoviePage = ({ filmData }) => {
+const MoviePage = ({ filmData, filterMovie }) => {
   const movies = filmData.sort((a, b) => a.episode_id - b.episode_id)
   .map(film => {
     return (
@@ -23,6 +23,7 @@ const MoviePage = ({ filmData }) => {
       episode={film.episode_id}
       release={film.release_date}
       opening={film.opening_crawl}
+      filterMovie={filterMovie}
     />
   )
 });
