@@ -1,13 +1,14 @@
-// import React from 'react';
+import React from 'react';
 
-// const UserProfile = () => {
-//   return (
-//     <nav>
+const UserProfile = ({ currentUser }) => {
+  console.log(currentUser)
+  return (
+    <section>
+      <h3>Name: {currentUser.name}</h3>
+      <p>Quote: {currentUser.quote}</p>
+      <h4>Experience Level: {currentUser.rank}</h4>
+    </section>
+  )
+}
 
-//     </nav>
-//   )
-
-
-// }
-
-// export default UserProfile;
+export default UserProfile;
