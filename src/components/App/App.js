@@ -3,6 +3,7 @@ import './App.scss';
 import WelcomeForm from '../WelcomeForm/WelcomeForm.js';
 import MoviePage from '../MoviePage/MoviePage.js';
 import UserProfile from '../UserProfile/UserProfile.js';
+import CharactersPage from '../CharactersPage/CharactersPage.js'
 // import Loading from '../Loading/Loading.js';
 
 class App extends Component {
@@ -11,7 +12,8 @@ class App extends Component {
     this.state = {
       currentPage: 'WelcomeForm',
       filmData: [],
-      currentUser: {}
+      currentUser: {},
+      currentMovie: {}
     };
   }
 
@@ -25,6 +27,11 @@ class App extends Component {
 
   changePage = (page, userObj) => {
     this.setState({currentPage: page, currentUser: userObj});
+  }
+
+  filterMovie = (id) => {
+    let movie = this.state.filmData.find(movie => parseInt(id) === movie.episode_id);
+    this.setState({currentMovie: movie, currentPage: 'CharactersPage'});
   }
 
   renderLandingPage = () => {
@@ -49,7 +56,10 @@ class App extends Component {
           </h1>
         </header>
         <UserProfile currentUser={this.state.currentUser}/>
-        <MoviePage filmData={this.state.filmData} changePage={this.changePage}/>
+        <MoviePage 
+          filmData={this.state.filmData} 
+          filterMovie={this.filterMovie}
+        />
       </div>
     );
   }
@@ -60,6 +70,8 @@ class App extends Component {
       return this.renderLandingPage();
     } else if (currentPage === 'MoviePage') {
       return this.renderMoviePage();
+    } else if (currentPage === 'CharactersPage') {
+      return <CharactersPage currentMovie={this.state.currentMovie} />
     }
     // return <Loading />
   }
