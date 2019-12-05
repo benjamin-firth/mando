@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.scss';
 import WelcomeForm from '../WelcomeForm/WelcomeForm.js';
 import MoviePage from '../MoviePage/MoviePage.js';
+import Loading from '../Loading/Loading.js';
 
 class App extends Component {
   constructor() {
@@ -51,14 +52,15 @@ class App extends Component {
     );
   }
 
-  render(name) {
-    const { currentPage } = this.state;
-    if (currentPage === 'WelcomeForm') {
-      return this.renderLandingPage();
-    } else if (currentPage === 'MoviePage') {
-      console.log(this.state.filmData);
-      return this.renderMoviePage();
-    }
+  render() {
+    // const { currentPage } = this.state;
+    // if (currentPage === 'WelcomeForm') {
+    //   return this.renderLandingPage();
+    // } else if (currentPage === 'MoviePage') {
+    //   console.log(this.state.filmData);
+    //   return this.renderMoviePage();
+    // }
+    return <Loading />
   }
 }
 
