@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 import './App.scss';
 import WelcomeForm from '../WelcomeForm/WelcomeForm.js';
 import MoviePage from '../MoviePage/MoviePage.js';
@@ -13,7 +14,8 @@ class App extends Component {
       currentPage: 'WelcomeForm',
       filmData: [],
       currentUser: {},
-      currentMovie: {}
+      currentMovie: {},
+      error: 'invisibleError',
     };
   }
 
@@ -34,46 +36,33 @@ class App extends Component {
     this.setState({currentMovie: movie, currentPage: 'CharactersPage'});
   }
 
-  renderLandingPage = () => {
-    return (
-      <div className="App welcome">
-        <header className="App-header">
-          <h1>
-            MANDO
-          </h1>
-        </header>
-        <WelcomeForm changePage={this.changePage}/>
-      </div>
-    );
-  }
-  
-  renderMoviePage = () => {
+  render() {
     return (
       <div className="App">
         <header className="App-header">
           <h1>
             MANDO
           </h1>
+        {/* <UserProfile currentUser={this.state.currentUser}/> */}
         </header>
-        <UserProfile currentUser={this.state.currentUser}/>
-        <MoviePage 
-          filmData={this.state.filmData} 
-          filterMovie={this.filterMovie}
-        />
+        <body>
+          <Route path="/movie-page" render={() => {
+            return <MoviePage 
+            filmData={this.state.filmData} 
+            filterMovie={this.filterMovie}
+            />
+          }} />
+          {/* Change url paths to lower case with dashes in between */}
+          <Route path="/characters-page/:id" render={({ match }) => {
+            console.log(match, match.params);
+            let movie = this.state.filmData.find(film => film.episode_id === parseInt(match.params.id));
+            return <CharactersPage currentMovie={movie} />
+          }}/>
+          <Route exact path="/" render={({ history }) => 
+            <WelcomeForm history={history} changePage={this.changePage}/>} />
+        </body>
       </div>
     );
-  }
-
-  render() {
-    const { currentPage } = this.state;
-    if (currentPage === 'WelcomeForm') {
-      return this.renderLandingPage();
-    } else if (currentPage === 'MoviePage') {
-      return this.renderMoviePage();
-    } else if (currentPage === 'CharactersPage') {
-      return <CharactersPage currentMovie={this.state.currentMovie} />
-    }
-    // return <Loading />
   }
 }
 
