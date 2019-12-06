@@ -25,7 +25,13 @@ class WelcomeForm extends Component {
       this.setState({errorMsg: 'visibleError'});
     } else {
       this.setState({errorMsg: 'invisibleError'})
-      this.props.history.push('/movie-page')
+      let userObj = {
+        name: currentName,
+        quote: currentQuote,
+        rank: currentRank
+      }
+      this.props.changePage('MoviePage', userObj);
+      this.props.history.push('/movie-page');
     }
   }
 

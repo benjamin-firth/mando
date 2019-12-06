@@ -20,11 +20,18 @@ $secondary-background-color: #282727;
   background-color: black;
   height: 10vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   font-size: 3em;
   color: $font-color1;
+  img {
+    height: 75%;
+  }
+  h1 {
+    flex-basis: 91%;
+    padding-top: 5px;
+  }
 }
 
 .welcome {
