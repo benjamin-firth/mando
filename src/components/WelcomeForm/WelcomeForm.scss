@@ -1,11 +1,11 @@
 @import '../App/App.scss';
 
 .visibleError {
-  font-family: $main-font;
-  color: RED;
+  color: red;
   align-self: center;
 }
 
 .invisibleError {
   visibility: hidden;
 }
+
