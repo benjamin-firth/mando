@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Character from '../Character/Character.js';
 
 class CharactersPage extends Component {
   constructor(props) {
@@ -63,9 +64,14 @@ class CharactersPage extends Component {
   }
 
   render() {
+    let characters = this.state.characters.map(character => {
+      return <Character {...character} />
+    })
 
     return (
-      <h1>Hell yeah brutherrrrrr....</h1>
+      <section className="main">
+        {characters}
+      </section>
     )
   }
 }
