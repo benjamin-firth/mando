@@ -36,7 +36,6 @@ class WelcomeForm extends Component {
   }
 
   render() {
-    console.log(this.props.history);
     return(
       <form className='main login'>
         <label>Name</label>

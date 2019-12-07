@@ -29,7 +29,6 @@ class App extends Component {
   }
 
   changePage = (page, userObj) => {
-    // Refactor to base page logic on url instead of currentPage in state
     this.setState({currentPage: page, currentUser: userObj});
   }
 
