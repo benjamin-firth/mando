@@ -20,11 +20,18 @@ $secondary-background-color: #282727;
   background-color: black;
   height: 10vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   font-size: 3em;
   color: $font-color1;
+  img {
+    height: 75%;
+  }
+  h1 {
+    flex-basis: 91%;
+    padding-top: 5px;
+  }
 }
 
 .welcome {
@@ -54,12 +61,22 @@ $secondary-background-color: #282727;
     width: 100%;
     margin-bottom: 5%;
   }
+  .login-button {
+    width: 100%;
+    margin-bottom: 5%;
+    height: 5vh;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    padding: 0%;
+  }
   button {
     background-color: black;
     color: white;
     font-weight: bold;
     padding: 0%;
     height: 5vh;
+    z-index: 100000000000;
   }
   img {
     height: 30%;
@@ -78,7 +95,7 @@ $secondary-background-color: #282727;
   div {
     width: 50vw;
     text-align: left;
-    button {
+    .character-button {
       background-color: black;
       color: white;
       width: 40vw;
