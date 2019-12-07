@@ -45,5 +45,49 @@ describe('Welcome Form', () => {
     expect(wrapper.instance().mockErrorCheck).toHaveBeenCalled();
   })
 
+  it('should run handleChange when the input is changed', () => {
+    wrapper.instance().handleChange = jest.fn();
+    const mockEvent = { 
+      preventDefault: jest.fn(),
+      target: {
+        name: 'name',
+        value: 'John Adams'
+      }
+    };
+
+    wrapper.find('input').at(0).simulate('change', mockEvent);
+    expect(wrapper.instance().handleChange).toHaveBeenCalled();
+
+  })
+
+  it('should run handleChange when the second input is changed', () => {
+    wrapper.instance().handleChange = jest.fn();
+    const mockEvent = { 
+      preventDefault: jest.fn(),
+      target: {
+        name: 'quote',
+        value: 'John Adams'
+      }
+    };
+
+    wrapper.find('input').at(1).simulate('change', mockEvent);
+    expect(wrapper.instance().handleChange).toHaveBeenCalled();
+
+  })
+
+  it('should run handleChange when the select is changed', () => {
+    wrapper.instance().handleChange = jest.fn();
+    const mockEvent = { 
+      preventDefault: jest.fn(),
+      target: {
+        name: 'currentRank',
+        value: 'Ultimate Jedi'
+      }
+    };
+
+    wrapper.find('select').simulate('change', mockEvent);
+    expect(wrapper.instance().handleChange).toHaveBeenCalled();
+  })
+
 
 })
