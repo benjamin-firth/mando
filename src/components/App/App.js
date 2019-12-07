@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
 import './App.scss';
 import WelcomeForm from '../WelcomeForm/WelcomeForm.js';
 import MoviePage from '../MoviePage/MoviePage.js';
 import UserProfile from '../UserProfile/UserProfile.js';
-import CharactersPage from '../CharactersPage/CharactersPage.js'
+import CharactersPage from '../CharactersPage/CharactersPage.js';
+import Favorites from '../Favorites/Favorites.js';
+import logo from '../../logo.svg';
 // import Loading from '../Loading/Loading.js';
 
 class App extends Component {
@@ -50,6 +52,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
+          <NavLink id='favorite' to='/favorites'>{this.state.faveChaos.length}</NavLink>
           <h1>MANDO</h1>
           {this.state.currentPage !== 'WelcomeForm' && <img
             onClick={() => this.handleImgClick()}
@@ -69,6 +72,7 @@ class App extends Component {
             let movie = this.state.filmData.find(film => film.episode_id === parseInt(match.params.id));
             return <CharactersPage currentMovie={movie} updateFave={this.updateFaves} />
           }}/>
+          <Route exact path="/favorites" render={() => <Favorites faves={this.state.faveChaos}/>} />
           <Route exact path="/" render={({ history }) =>
             <WelcomeForm history={history} changePage={this.changePage}/>} />
         </body>
