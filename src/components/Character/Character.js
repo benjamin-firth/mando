@@ -2,7 +2,7 @@ import React from 'react';
 import logo from '../../logo.svg';
 import Loading from '../Loading/Loading.js';
 
-const Character = ({ homeworld, name, population, species, films }) => {
+const Character = ({ homeworld, name, population, species, films, updateFave }) => {
   if (!name) {
     return <Loading />
   }
@@ -17,6 +17,7 @@ const Character = ({ homeworld, name, population, species, films }) => {
         <ul>Films: {filmList}</ul>
       </div>
       <img src={logo} className="movie-picture" alt="Movie Poster" />
+      <button onClick={() => updateFave({homeworld, name, population, species, films})}>Fave Dis</button>
     </article>
   )
 }

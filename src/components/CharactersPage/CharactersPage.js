@@ -65,11 +65,12 @@ class CharactersPage extends Component {
 
   render() {
     let characters = this.state.characters.map(character => {
-      return <Character {...character} />
+      return <Character {...character} updateFave={this.props.updateFave} />
     })
 
     return (
       <section className="main">
+        <p>{this.props.currentMovie.opening_crawl}</p>
         {characters}
       </section>
     )

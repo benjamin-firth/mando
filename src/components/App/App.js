@@ -16,7 +16,8 @@ class App extends Component {
       currentUser: {},
       currentMovie: {},
       error: 'invisibleError',
-      showUserProfile: false
+      showUserProfile: false,
+      faveChaos: []
     };
   }
 
@@ -41,6 +42,10 @@ class App extends Component {
     this.setState({ showUserProfile: !this.state.showUserProfile })
   }
 
+  updateFaves = (newChar) => {
+    this.setState({ faveChaos: [...this.state.faveChaos, newChar] })
+  }
+
   render() {
     return (
       <div className="App">
@@ -62,7 +67,7 @@ class App extends Component {
           {/* Change url paths to lower case with dashes in between */}
           <Route path="/characters-page/:id" render={({ match }) => {
             let movie = this.state.filmData.find(film => film.episode_id === parseInt(match.params.id));
-            return <CharactersPage currentMovie={movie} />
+            return <CharactersPage currentMovie={movie} updateFave={this.updateFaves} />
           }}/>
           <Route exact path="/" render={({ history }) =>
             <WelcomeForm history={history} changePage={this.changePage}/>} />
