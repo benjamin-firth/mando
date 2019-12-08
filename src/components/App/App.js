@@ -58,31 +58,42 @@ class App extends Component {
   }
 
   render() {
+    const { faveChaos, currentPage, showUserProfile, currentUser, filmData } = this.state;
+    const getCharacters = (match) => {
+      let movie = this.state.filmData.find(film => film.episode_id === parseInt(match.params.id));
+      return <CharactersPage faves={this.state.faveChaos} currentMovie={movie} updateFave={this.updateFaves} />
+    }
+
     return (
       <div className="App">
         <header className="App-header">
-          <NavLink id='favorite' to='/favorites'>{this.state.faveChaos.length}</NavLink>
+          <NavLink id='favorite' to='/favorites'>{faveChaos.length}</NavLink>
           <h1>MANDO</h1>
-          {this.state.currentPage !== 'WelcomeForm' && <img
-            onClick={() => this.handleImgClick()}
-            src='https://i.ya-webdesign.com/images/mandalorian-helmet-png-4.png'
-            alt='Mandalorian Helmet'
+          {currentPage !== 'WelcomeForm' && 
+            <img
+              onClick={() => this.handleImgClick()}
+              src='https://i.ya-webdesign.com/images/mandalorian-helmet-png-4.png'
+              alt='Mandalorian Helmet'
           />}
         </header>
         <main>
-          {this.state.showUserProfile && <UserProfile changePage={this.changePage} currentUser={this.state.currentUser} handleImgClick={this.handleImgClick}/>}
+          {showUserProfile && 
+            <UserProfile 
+              changePage={this.changePage} 
+              currentUser={currentUser} 
+              handleImgClick={this.handleImgClick}/>}
             <Route path="/movie-page" render={() => {
               return <MoviePage
-              filmData={this.state.filmData}
+              filmData={filmData}
               filterMovie={this.filterMovie}
-              />
-            }} />
-            {/* Change url paths to lower case with dashes in between */}
-            <Route path="/characters-page/:id" render={({ match }) => {
-              let movie = this.state.filmData.find(film => film.episode_id === parseInt(match.params.id));
-              return <CharactersPage faves={this.state.faveChaos} currentMovie={movie} updateFave={this.updateFaves} />
-            }}/>
-            <Route exact path="/favorites" render={() => <Favorites faves={this.state.faveChaos} updateFave={this.updateFaves}/>} />
+              />}} />
+            <Route 
+              path="/characters-page/:id" 
+              render={({ match }) => getCharacters(match)}/>
+            <Route 
+              exact path="/favorites" 
+              render={() => 
+                <Favorites faves={faveChaos} updateFave={this.updateFaves}/>} />
             <Route exact path="/" render={({ history }) =>
               <WelcomeForm history={history} changePage={this.changePage}/>} />
         </main>

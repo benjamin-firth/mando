@@ -86,30 +86,3 @@ main {
   }
 }
 
-.movie {
-  display: flex;
-  justify-content: space-between;
-  margin: auto;
-  margin-top: 20px;
-  width: 80vw;
-  height: auto;
-  background-color: $secondary-background-color;
-  div {
-    width: 50vw;
-    text-align: left;
-    .character-button {
-      background-color: black;
-      color: white;
-      width: 40vw;
-      font-weight: bold;
-      display: inline-block;
-      height: 5vh;
-    }
-  }
-  .movie-picture {
-    height: inherit;
-    width: 30vw;
-    object-fit: cover;
-    border-left: 2px solid yellow;
-  }
-}
