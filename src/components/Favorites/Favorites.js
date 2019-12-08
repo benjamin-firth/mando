@@ -1,12 +1,12 @@
 import React from 'react';
 import Character from '../Character/Character.js';
 
-const Favorites = ({ faves }) => {
+const Favorites = ({ faves, updateFave }) => {
     if (faves.length === 0) {
       return <h1>Sorry, No Faves</h1>
     }
     let characters = faves.map(character => {
-      return <Character {...character} />
+      return <Character {...character} isFave={true} updateFave={updateFave}/>
     });
 
     return (

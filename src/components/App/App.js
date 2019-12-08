@@ -80,7 +80,7 @@ class App extends Component {
             let movie = this.state.filmData.find(film => film.episode_id === parseInt(match.params.id));
             return <CharactersPage faves={this.state.faveChaos} currentMovie={movie} updateFave={this.updateFaves} />
           }}/>
-          <Route exact path="/favorites" render={() => <Favorites faves={this.state.faveChaos}/>} />
+          <Route exact path="/favorites" render={() => <Favorites faves={this.state.faveChaos} updateFave={this.updateFaves}/>} />
           <Route exact path="/" render={({ history }) =>
             <WelcomeForm history={history} changePage={this.changePage}/>} />
         </body>
