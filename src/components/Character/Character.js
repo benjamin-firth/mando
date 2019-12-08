@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from '../../logo.svg';
 import Loading from '../Loading/Loading.js';
+import './Character.scss';
 
 const Character = ({ homeworld, name, population, species, films, updateFave, isFave }) => {
   if (!name) {
@@ -16,7 +17,6 @@ const Character = ({ homeworld, name, population, species, films, updateFave, is
         <p>Species: {species}</p>
         <ul>Films: {filmList}</ul>
       </div>
-      <img src={logo} className="movie-picture" alt="Movie Poster" />
       <button onClick={() => updateFave({homeworld, name, population, species, films})}>{isFave ? "UnFavorite Dis" : "Fave Dis"}</button>
     </article>
   )
