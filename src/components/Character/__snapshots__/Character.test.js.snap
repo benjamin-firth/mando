@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Character should match the snapshot 1`] = `<Loading />`;
+
+exports[`Character should match the snapshot when there is a name 1`] = `
+<article
+  className="movie"
+>
+  <div>
+    <h2>
+      John Adams
+    </h2>
+    <p>
+      Homeworld: 
+      test earth
+    </p>
+    <p>
+      Homeworld Population: 
+      300
+    </p>
+    <p>
+      Species: 
+      tree frog
+    </p>
+    <ul>
+      Films: 
+      <li>
+        test
+      </li>
+      <li>
+        test
+      </li>
+    </ul>
+  </div>
+  <img
+    alt="Movie Poster"
+    className="movie-picture"
+    src="logo.svg"
+  />
+  <button
+    onClick={[Function]}
+  >
+    Fave Dis
+  </button>
+</article>
+`;
