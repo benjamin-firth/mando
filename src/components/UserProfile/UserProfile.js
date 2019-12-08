@@ -1,7 +1,6 @@
 import React from 'react';
 
 const UserProfile = ({ currentUser }) => {
-  console.log(currentUser)
   return (
     <section>
       <h3>Name: {currentUser.name}</h3>

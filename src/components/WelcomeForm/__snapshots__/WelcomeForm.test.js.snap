@@ -1,3 +1,64 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Welcome Form should match the snapshot 1`] = `ShallowWrapper {}`;
+exports[`Welcome Form should match the snapshot 1`] = `
+<form
+  className="main login"
+>
+  <label>
+    Name
+  </label>
+  <input
+    name="currentName"
+    onChange={[Function]}
+    placeholder="Galactic Identifier"
+  />
+  <label>
+    Quote
+  </label>
+  <input
+    name="currentQuote"
+    onChange={[Function]}
+    placeholder="Do or do not, there is no try."
+  />
+  <label>
+    Experience Level
+  </label>
+  <select
+    name="currentRank"
+    onChange={[Function]}
+  >
+    <option
+      value="padawan"
+    >
+      Padawan
+    </option>
+    <option
+      value="jediknight"
+    >
+      Jedi Knight
+    </option>
+    <option
+      value="jedimaster"
+    >
+      Jedi Master
+    </option>
+  </select>
+  <button
+    className="login-button"
+    onClick={[Function]}
+    type="button"
+  >
+    Enter, you will!
+  </button>
+  <p
+    className="invisibleError"
+  >
+    Enter all forms correctly, you must!
+  </p>
+  <img
+    alt="Yoda shows up when login is invalid"
+    className="invisibleError"
+    src="https://66.media.tumblr.com/a3b90eadcb7a53a60a56a73b1d28f5b1/b65a5b0b8c743787-e7/s400x600/bd438f1eea7c1e7593de491f7c7f50f986fe4257.png"
+  />
+</form>
+`;
