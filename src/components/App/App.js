@@ -29,8 +29,11 @@ class App extends Component {
     })
   }
 
-  changePage = (page, userObj) => {
+  changePage = (page, userObj, toggleUserProfile) => {
     this.setState({currentPage: page, currentUser: userObj});
+    if (toggleUserProfile === 'hide') {
+      this.setState({showUserProfile: false});
+    }
   }
 
   filterMovie = (id) => {
@@ -65,24 +68,24 @@ class App extends Component {
             src='https://i.ya-webdesign.com/images/mandalorian-helmet-png-4.png'
             alt='Mandalorian Helmet'
           />}
-        {this.state.showUserProfile && <UserProfile currentUser={this.state.currentUser}/>}
         </header>
-        <body>
-          <Route path="/movie-page" render={() => {
-            return <MoviePage
-            filmData={this.state.filmData}
-            filterMovie={this.filterMovie}
-            />
-          }} />
-          {/* Change url paths to lower case with dashes in between */}
-          <Route path="/characters-page/:id" render={({ match }) => {
-            let movie = this.state.filmData.find(film => film.episode_id === parseInt(match.params.id));
-            return <CharactersPage faves={this.state.faveChaos} currentMovie={movie} updateFave={this.updateFaves} />
-          }}/>
-          <Route exact path="/favorites" render={() => <Favorites faves={this.state.faveChaos} updateFave={this.updateFaves}/>} />
-          <Route exact path="/" render={({ history }) =>
-            <WelcomeForm history={history} changePage={this.changePage}/>} />
-        </body>
+        <main>
+          {this.state.showUserProfile && <UserProfile changePage={this.changePage} currentUser={this.state.currentUser} handleImgClick={this.handleImgClick}/>}
+            <Route path="/movie-page" render={() => {
+              return <MoviePage
+              filmData={this.state.filmData}
+              filterMovie={this.filterMovie}
+              />
+            }} />
+            {/* Change url paths to lower case with dashes in between */}
+            <Route path="/characters-page/:id" render={({ match }) => {
+              let movie = this.state.filmData.find(film => film.episode_id === parseInt(match.params.id));
+              return <CharactersPage faves={this.state.faveChaos} currentMovie={movie} updateFave={this.updateFaves} />
+            }}/>
+            <Route exact path="/favorites" render={() => <Favorites faves={this.state.faveChaos} updateFave={this.updateFaves}/>} />
+            <Route exact path="/" render={({ history }) =>
+              <WelcomeForm history={history} changePage={this.changePage}/>} />
+        </main>
       </div>
     );
   }

@@ -41,8 +41,10 @@ $secondary-background-color: #282727;
   @include new-background('https://cdn.hipwallpaper.com/i/15/46/V3fBjM.jpg');
 }
 
-.main {
+main {
   color: $font-color1;
+  display: flex;
+  flex-direction: column;
 }
 
 .login {
