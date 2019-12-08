@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Movie should match the snapshot 1`] = `
+<article
+  className="movie"
+>
+  <div>
+    <h2 />
+    <p>
+      Episode #
+    </p>
+    <p>
+      Release Year: 
+    </p>
+    <NavLink
+      className="character-button"
+      to="/characters-page/undefined"
+    >
+      View Characters
+    </NavLink>
+  </div>
+  <img
+    alt="Movie Poster"
+    className="movie-picture"
+  />
+</article>
+`;

@@ -44,6 +44,7 @@ exports[`Welcome Form should match the snapshot 1`] = `
     </option>
   </select>
   <button
+    className="login-button"
     onClick={[Function]}
     type="button"
   >
@@ -57,7 +58,7 @@ exports[`Welcome Form should match the snapshot 1`] = `
   <img
     alt="Yoda shows up when login is invalid"
     className="invisibleError"
-    src="https://1.bp.blogspot.com/-2zleuWnMiP4/XdmjP70dUPI/AAAAAAAAAZw/ZXK_NaTLn-cvCP7VIEHxNsA7zcaqEt6nACLcBGAsYHQ/s1600/baby-yoda-by-leo-batic.jpg"
+    src="https://66.media.tumblr.com/a3b90eadcb7a53a60a56a73b1d28f5b1/b65a5b0b8c743787-e7/s400x600/bd438f1eea7c1e7593de491f7c7f50f986fe4257.png"
   />
 </form>
 `;
