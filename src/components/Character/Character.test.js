@@ -4,9 +4,11 @@ import Character from './Character';
 
 describe('Character', () => {
   let wrapper;
+  let mockUpdateFave;
 
   beforeEach(() => {
     wrapper = shallow(<Character />);
+    mockUpdateFave = jest.fn();
   })
 
   it('should match the snapshot', () => {
@@ -24,5 +26,20 @@ describe('Character', () => {
     }
     wrapper = shallow(<Character {...mockProps} key='test'/>)
     expect(wrapper).toMatchSnapshot();
+  })
+
+  it('should fire updateFave when button is clicked', () => {
+    let mockProps = { 
+      homeworld: 'test earth',
+      name: 'John Adams',
+      population: 300,
+      species: 'tree frog',
+      films: ['test', 'test'],
+      updateFave: jest.fn(),
+    }
+    wrapper = shallow(<Character {...mockProps} key='test'/>)
+
+    wrapper.find('button').simulate('click');
+    expect(mockProps.updateFave).toHaveBeenCalled();
   })
 })
