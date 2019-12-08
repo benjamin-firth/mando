@@ -2,7 +2,7 @@ import React from 'react';
 import logo from '../../logo.svg';
 import Loading from '../Loading/Loading.js';
 
-const Character = ({ homeworld, name, population, species, films, updateFave }) => {
+const Character = ({ homeworld, name, population, species, films, updateFave}) => {
   if (!name) {
     return <Loading />
   }
