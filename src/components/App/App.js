@@ -6,8 +6,6 @@ import MoviePage from '../MoviePage/MoviePage.js';
 import UserProfile from '../UserProfile/UserProfile.js';
 import CharactersPage from '../CharactersPage/CharactersPage.js';
 import Favorites from '../Favorites/Favorites.js';
-import logo from '../../logo.svg';
-// import Loading from '../Loading/Loading.js';
 
 class App extends Component {
   constructor() {
@@ -65,6 +63,7 @@ class App extends Component {
           {this.state.currentPage !== 'WelcomeForm' && <img
             onClick={() => this.handleImgClick()}
             src='https://i.ya-webdesign.com/images/mandalorian-helmet-png-4.png'
+            alt='Mandalorian Helmet'
           />}
         {this.state.showUserProfile && <UserProfile currentUser={this.state.currentUser}/>}
         </header>

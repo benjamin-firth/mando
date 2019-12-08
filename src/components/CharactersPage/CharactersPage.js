@@ -73,7 +73,8 @@ class CharactersPage extends Component {
 
   render() {
     let characters = this.state.characters.map(character => {
-      return <Character {...character} isFave={this.checkFave(character)} updateFave={this.props.updateFave} />
+      return <Character {...character} isFave={this.checkFave(character)} updateFave={this.props.updateFave}
+      key={character.name} />
     })
 
     return (
