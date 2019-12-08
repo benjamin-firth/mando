@@ -78,7 +78,7 @@ class App extends Component {
           {/* Change url paths to lower case with dashes in between */}
           <Route path="/characters-page/:id" render={({ match }) => {
             let movie = this.state.filmData.find(film => film.episode_id === parseInt(match.params.id));
-            return <CharactersPage faves={this.faveChaos} currentMovie={movie} updateFave={this.updateFaves} />
+            return <CharactersPage faves={this.state.faveChaos} currentMovie={movie} updateFave={this.updateFaves} />
           }}/>
           <Route exact path="/favorites" render={() => <Favorites faves={this.state.faveChaos}/>} />
           <Route exact path="/" render={({ history }) =>
