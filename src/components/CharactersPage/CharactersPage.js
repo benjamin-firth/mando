@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Character from '../Character/Character.js';
+import FilmScript from '../FilmScript/FilmScript.js';
+import './CharactersPage.scss';
 
 class CharactersPage extends Component {
   constructor(props) {
@@ -78,9 +80,13 @@ class CharactersPage extends Component {
     })
 
     return (
-      <section className="main">
-        <p>{this.props.currentMovie.opening_crawl}</p>
-        {characters}
+      <section className="characters-container">
+        <FilmScript 
+          crawl={this.props.currentMovie.opening_crawl}
+          filmTitle={this.props.currentMovie.title}/>
+        <section className="characters">
+          {characters}
+        </section>  
       </section>
     )
   }
