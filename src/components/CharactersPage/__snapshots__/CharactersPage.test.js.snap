@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Characters Page should match the snapshot 1`] = `
+<section
+  className="main"
+>
+  <p />
+  <Character
+    0="J"
+    1="o"
+    2="h"
+    3="n"
+    4="n"
+    5="y"
+    isFave={false}
+    updateFave={[MockFunction]}
+  />
+  <Character
+    0="T"
+    1="s"
+    2="u"
+    3="n"
+    4="a"
+    5="m"
+    6="i"
+    isFave={false}
+    updateFave={[MockFunction]}
+  />
+</section>
+`;

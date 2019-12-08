@@ -5,7 +5,7 @@ class CharactersPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      characters: props.currentMovie.characters
+      characters: props.currentMovie.characters,
     }
   }
 
@@ -50,6 +50,14 @@ class CharactersPage extends Component {
       })
   }
 
+  checkFave = (character) => {
+    if (this.props.faves.find(fave => fave.name === character.name)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   componentDidMount() {
     let characters = this.findCharacters();
     let promises = characters.map(character => {
@@ -65,7 +73,8 @@ class CharactersPage extends Component {
 
   render() {
     let characters = this.state.characters.map(character => {
-      return <Character {...character} updateFave={this.props.updateFave} />
+      return <Character {...character} isFave={this.checkFave(character)} updateFave={this.props.updateFave}
+      key={character.name} />
     })
 
     return (

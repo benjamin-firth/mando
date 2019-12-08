@@ -6,8 +6,6 @@ import MoviePage from '../MoviePage/MoviePage.js';
 import UserProfile from '../UserProfile/UserProfile.js';
 import CharactersPage from '../CharactersPage/CharactersPage.js';
 import Favorites from '../Favorites/Favorites.js';
-import logo from '../../logo.svg';
-// import Loading from '../Loading/Loading.js';
 
 class App extends Component {
   constructor() {
@@ -45,7 +43,15 @@ class App extends Component {
   }
 
   updateFaves = (newChar) => {
-    this.setState({ faveChaos: [...this.state.faveChaos, newChar] })
+    let isFave = this.state.faveChaos.find(fave => fave.name === newChar.name)
+    if (isFave) {
+      let initial = [...this.state.faveChaos];
+      let index = initial.indexOf(isFave);
+      initial.splice(index, 1);
+      this.setState({ faveChaos: initial })
+    } else {
+      this.setState({ faveChaos: [...this.state.faveChaos, newChar] })
+    }
   }
 
   render() {
@@ -57,6 +63,7 @@ class App extends Component {
           {this.state.currentPage !== 'WelcomeForm' && <img
             onClick={() => this.handleImgClick()}
             src='https://i.ya-webdesign.com/images/mandalorian-helmet-png-4.png'
+            alt='Mandalorian Helmet'
           />}
         {this.state.showUserProfile && <UserProfile currentUser={this.state.currentUser}/>}
         </header>
@@ -70,9 +77,9 @@ class App extends Component {
           {/* Change url paths to lower case with dashes in between */}
           <Route path="/characters-page/:id" render={({ match }) => {
             let movie = this.state.filmData.find(film => film.episode_id === parseInt(match.params.id));
-            return <CharactersPage currentMovie={movie} updateFave={this.updateFaves} />
+            return <CharactersPage faves={this.state.faveChaos} currentMovie={movie} updateFave={this.updateFaves} />
           }}/>
-          <Route exact path="/favorites" render={() => <Favorites faves={this.state.faveChaos}/>} />
+          <Route exact path="/favorites" render={() => <Favorites faves={this.state.faveChaos} updateFave={this.updateFaves}/>} />
           <Route exact path="/" render={({ history }) =>
             <WelcomeForm history={history} changePage={this.changePage}/>} />
         </body>
