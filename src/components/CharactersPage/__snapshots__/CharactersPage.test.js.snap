@@ -26,5 +26,56 @@ exports[`Characters Page should match the snapshot 1`] = `
     isFave={false}
     updateFave={[MockFunction]}
   />
+  <Character
+    0="1"
+    isFave={false}
+    updateFave={[MockFunction]}
+  />
+  <Character
+    0="2"
+    isFave={false}
+    updateFave={[MockFunction]}
+  />
+  <Character
+    0="3"
+    isFave={false}
+    updateFave={[MockFunction]}
+  />
+  <Character
+    0="4"
+    isFave={false}
+    updateFave={[MockFunction]}
+  />
+  <Character
+    0="5"
+    isFave={false}
+    updateFave={[MockFunction]}
+  />
+  <Character
+    0="6"
+    isFave={false}
+    updateFave={[MockFunction]}
+  />
+  <Character
+    0="7"
+    isFave={false}
+    updateFave={[MockFunction]}
+  />
+  <Character
+    0="8"
+    isFave={false}
+    updateFave={[MockFunction]}
+  />
+  <Character
+    0="9"
+    isFave={false}
+    updateFave={[MockFunction]}
+  />
+  <Character
+    0="1"
+    1="0"
+    isFave={false}
+    updateFave={[MockFunction]}
+  />
 </section>
 `;
