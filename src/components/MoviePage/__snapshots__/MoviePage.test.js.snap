@@ -2,7 +2,7 @@
 
 exports[`MoviePage should match snapshot 1`] = `
 <section
-  className="main"
+  className="movie-container"
 >
   <Movie
     episode={1}

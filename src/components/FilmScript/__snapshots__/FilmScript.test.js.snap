@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilmScript should match the snapshot 1`] = `
+<div
+  className="FilmScript"
+>
+  <div
+    className="fade"
+  />
+  <section
+    className="star-wars"
+  >
+    <div
+      className="crawl"
+    >
+      <div
+        className="title"
+      >
+        <h4 />
+      </div>
+      <p
+        className="opening-text"
+      />
+    </div>
+  </section>
+</div>
+`;

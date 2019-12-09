@@ -4,7 +4,7 @@ exports[`Character should match the snapshot 1`] = `<Loading />`;
 
 exports[`Character should match the snapshot when there is a name 1`] = `
 <article
-  className="movie"
+  className="character-card"
 >
   <div>
     <h2>
@@ -32,11 +32,6 @@ exports[`Character should match the snapshot when there is a name 1`] = `
       </li>
     </ul>
   </div>
-  <img
-    alt="Movie Poster"
-    className="movie-picture"
-    src="logo.svg"
-  />
   <button
     onClick={[Function]}
   >

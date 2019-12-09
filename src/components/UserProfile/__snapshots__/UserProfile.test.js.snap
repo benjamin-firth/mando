@@ -17,5 +17,20 @@ exports[`UserProfile should match the snapshot 1`] = `
     Experience Level: 
     Master
   </h4>
+  <NavLink
+    exact={true}
+    id="welcome-form"
+    onClick={[Function]}
+    to="/"
+  >
+    Log Out
+  </NavLink>
+  <NavLink
+    exact={true}
+    onClick={[Function]}
+    to="/movie-page"
+  >
+    Home
+  </NavLink>
 </section>
 `;

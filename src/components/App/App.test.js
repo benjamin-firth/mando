@@ -74,10 +74,55 @@ describe('App', () => {
   })
 
   it('should update favorites by removing a character when updateFaves is run', () => {
+    let mockCharacterData = [
+      {
+        name: 'John',
+        isFave: true
+      },
+      {
+        name: 'Ben',
+        isFave: true
+      }
+    ];
+    let defaultState = { faveChaos: mockCharacterData };
+    let expected = [
+      {
+        name: 'Ben',
+        isFave: true
+      }
+    ];
 
+    wrapper.instance().setState(defaultState);
+
+    wrapper.instance().updateFaves({ name: 'John', isFave: true });
+
+    expect(wrapper.state('faveChaos')).toEqual(expected);
   })
 
   it('should be able to update favorites by adding a character when updateFaves is run', () => {
-    
+    let mockCharacterData = [
+      {
+        name: 'John',
+        isFave: true
+      }
+    ];
+    let defaultState = { faveChaos: mockCharacterData };
+    let expected = [
+      {
+        name: 'John',
+        isFave: true
+      },
+      {
+        name: 'Ben',
+        isFave: true
+      }
+    ];
+
+    wrapper.instance().setState(defaultState);
+
+    wrapper.instance().updateFaves({ name: 'Ben', isFave: true });
+
+    expect(wrapper.state('faveChaos')).toEqual(expected);
+
   })
 })
