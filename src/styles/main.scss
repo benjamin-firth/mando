@@ -1,0 +1,13 @@
+@import 'variables';
+@import 'mixins';
+@import 'index';
+@import '../components/App/App.scss';
+@import '../components/Character/Character.scss';
+@import '../components/CharactersPage/CharactersPage.scss';
+@import '../components/Favorites/Favorites.scss';
+@import '../components/FilmScript/FilmScript.scss';
+@import '../components/Loading/Loading.scss';
+@import '../components/Movie/Movie.scss';
+@import '../components/MoviePage/MoviePage.scss';
+@import '../components/UserProfile/UserProfile.scss';
+@import '../components/WelcomeForm/WelcomeForm.scss';

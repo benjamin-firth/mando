@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from '../../logo.svg';
 import Loading from '../Loading/Loading.js';
 
 const Character = ({ homeworld, name, population, species, films, updateFave, isFave }) => {
@@ -8,7 +7,7 @@ const Character = ({ homeworld, name, population, species, films, updateFave, is
   }
   let filmList = films.map(film => <li key={film.name}>{film}</li>)
   return (
-    <article className="movie">
+    <article className="character-card">
       <div>
         <h2>{name}</h2>
         <p>Homeworld: {homeworld}</p>
@@ -16,7 +15,6 @@ const Character = ({ homeworld, name, population, species, films, updateFave, is
         <p>Species: {species}</p>
         <ul>Films: {filmList}</ul>
       </div>
-      <img src={logo} className="movie-picture" alt="Movie Poster" />
       <button onClick={() => updateFave({homeworld, name, population, species, films})}>{isFave ? "UnFavorite Dis" : "Fave Dis"}</button>
     </article>
   )

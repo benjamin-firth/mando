@@ -1,0 +1,61 @@
+.FilmScript {
+  height: 100%;
+  overflow: hidden;
+  width: 50%;
+  // margin: auto;
+  max-height: 79vh;
+}
+
+.fade {
+  position: relative;
+  min-height: 35vh;
+  top: 0px;
+  z-index: 1;
+}
+
+.star-wars {
+  color: #feda4a;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 800px;
+  font-family: 'Pathway Gothic One', sans-serif;
+  font-size: 300%;
+  font-weight: 600;
+  letter-spacing: 6px;
+  line-height: 150%;
+  perspective: 400px;
+  text-align: justify;
+}
+
+.opening-text {
+  color: #feda4a;
+}
+
+.crawl {
+  position: relative;
+  top: 99999px;
+  transform-origin: 50% 100%;
+  animation: crawl 60s linear;
+}
+
+.crawl > .title {
+  font-size: 90%;
+  text-align: center;
+}
+
+.crawl > .title h4 {
+  margin: 0 0 100px;
+  text-transform: uppercase;
+}
+
+@keyframes crawl {
+	0% {
+    top: -100px;
+    transform: rotateX(20deg)  translateZ(0);
+  }
+	100% { 
+    top: -6000px;
+    transform: rotateX(25deg) translateZ(-2500px);
+  }
+}
