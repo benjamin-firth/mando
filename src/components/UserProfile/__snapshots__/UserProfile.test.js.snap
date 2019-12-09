@@ -27,6 +27,7 @@ exports[`UserProfile should match the snapshot 1`] = `
   </NavLink>
   <NavLink
     exact={true}
+    id="nav-link2"
     onClick={[Function]}
     to="/movie-page"
   >
