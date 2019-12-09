@@ -1,13 +1,3 @@
-$main-font: 'Stardos Stencil', cursive;
-$font-color1: white;
-$font-color2: #7B7B7B;
-$secondary-background-color: #282727;
-
-@mixin new-background($url) {
-  background: no-repeat url($url);
-  background-size: cover;
-}
-
 .App {
   text-align: center;
   min-height: 100vh;
@@ -41,73 +31,10 @@ $secondary-background-color: #282727;
   @include new-background('https://cdn.hipwallpaper.com/i/15/46/V3fBjM.jpg');
 }
 
-.main {
+main {
   color: $font-color1;
-}
-
-.login {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  margin: auto;
-  margin-top: 20px;
-  width: 53vw;
-  height: 60vh;
-  background-color: $secondary-background-color;
-  padding: 2% 12%;
-  input,
-  select,
-  button {
-    width: 100%;
-    margin-bottom: 5%;
-  }
-  .login-button {
-    width: 100%;
-    margin-bottom: 5%;
-    height: 5vh;
-    background-color: black;
-    color: white;
-    font-weight: bold;
-    padding: 0%;
-  }
-  button {
-    background-color: black;
-    color: white;
-    font-weight: bold;
-    padding: 0%;
-    height: 5vh;
-    z-index: 100000000000;
-  }
-  img {
-    height: 30%;
-    width: 20%;
-  }
 }
 
-.movie {
-  display: flex;
-  justify-content: space-between;
-  margin: auto;
-  margin-top: 20px;
-  width: 80vw;
-  height: auto;
-  background-color: $secondary-background-color;
-  div {
-    width: 50vw;
-    text-align: left;
-    .character-button {
-      background-color: black;
-      color: white;
-      width: 40vw;
-      font-weight: bold;
-      display: inline-block;
-      height: 5vh;
-    }
-  }
-  .movie-picture {
-    height: inherit;
-    width: 30vw;
-    object-fit: cover;
-    border-left: 2px solid yellow;
-  }
-}
+

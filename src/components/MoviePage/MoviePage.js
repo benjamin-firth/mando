@@ -29,7 +29,7 @@ const MoviePage = ({ filmData, filterMovie }) => {
 });
 
   return (
-    <section className="main">
+    <section className="movie-container">
       {movies}
     </section>
   )

@@ -10,7 +10,7 @@ describe('Welcome Form', () => {
   beforeEach(() => {
     mockChangePage = jest.fn();
     mockErrorCheck = jest.fn();
-    wrapper = shallow(<WelcomeForm changePage={mockChangePage}/>)
+    wrapper = shallow(<WelcomeForm changePage={mockChangePage} history={{ push: () => true}}/>)
   })
 
   it('should match the snapshot', () => {
@@ -36,14 +36,24 @@ describe('Welcome Form', () => {
     expect(wrapper.state()).toEqual(expected);
   })
 
-  it('should call the errorCheck function when the button is clicked', () => {
-
-    const mockEvent = { preventDefault: jest.fn() };
-    wrapper.instance().mockErrorCheck = jest.fn();
-
-    wrapper.find('button').simulate('click', mockEvent);
-    expect(wrapper.instance().mockErrorCheck).toHaveBeenCalled();
-  })
+  describe('errorCheck method', () => {
+    it('should set an error if the inputs are empty', () => {
+      const mockEvent = { preventDefault: jest.fn() };
+      expect(wrapper.state('errorMsg')).toBe('invisibleError');
+      wrapper.find('button').simulate('click', mockEvent);
+      expect(wrapper.state('errorMsg')).toBe('visibleError');
+    });
+    it('should not set an error if the inputs are filled', () => {
+      const mockEvent = { preventDefault: jest.fn() };
+      expect(wrapper.state('errorMsg')).toBe('invisibleError');
+      wrapper.instance().handleChange('currentName', 'Ben');
+      wrapper
+        .instance()
+        .handleChange('currentQuote', 'Lifes a box of chocolates');
+      wrapper.find('button').simulate('click', mockEvent);
+      expect(wrapper.state('errorMsg')).toBe('invisibleError');
+    });
+  });
 
   it('should run handleChange when the input is changed', () => {
     wrapper.instance().handleChange = jest.fn();

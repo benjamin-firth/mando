@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import './WelcomeForm.scss';
-
 
 class WelcomeForm extends Component {
   constructor(props) {

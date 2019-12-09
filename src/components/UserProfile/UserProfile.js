@@ -1,11 +1,16 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-const UserProfile = ({ currentUser }) => {
+const UserProfile = ({ currentUser, changePage, handleImgClick }) => {
+  console.log(currentUser.name);
+
   return (
-    <section>
+    <section className='profile-box'>
       <h3>Name: {currentUser.name}</h3>
-      <p>Quote: {currentUser.quote}</p>
+      <p>"{currentUser.quote}"</p>
       <h4>Experience Level: {currentUser.rank}</h4>
+      <NavLink id='welcome-form' onClick={() => changePage('WelcomeForm', {}, 'hide')} exact to={'/'}>Log Out</NavLink>
+      <NavLink exact to={'/movie-page'} onClick={() => handleImgClick()}>Home</NavLink>
     </section>
   )
 }

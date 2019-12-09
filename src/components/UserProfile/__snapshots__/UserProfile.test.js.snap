@@ -1,14 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`UserProfile should match the snapshot 1`] = `
-<section>
+<section
+  className="profile-box"
+>
   <h3>
     Name: 
     John Adams
   </h3>
   <p>
-    Quote: 
+    "
     You send them to me!
+    "
   </p>
   <h4>
     Experience Level: 
