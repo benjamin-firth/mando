@@ -7,7 +7,7 @@ describe('Character', () => {
   let mockUpdateFave;
 
   beforeEach(() => {
-    wrapper = shallow(<Character />);
+    wrapper = shallow(<Character key='test'/>);
     mockUpdateFave = jest.fn();
   })
 
@@ -16,7 +16,7 @@ describe('Character', () => {
   })
 
   it('should match the snapshot when there is a name', () => {
-    let mockProps = { 
+    let mockProps = {
       homeworld: 'test earth',
       name: 'John Adams',
       population: 300,
@@ -29,17 +29,24 @@ describe('Character', () => {
   })
 
   it('should fire updateFave when button is clicked', () => {
-    let mockProps = { 
+    let mockProps = {
       homeworld: 'test earth',
       name: 'John Adams',
       population: 300,
       species: 'tree frog',
       films: ['test', 'test'],
-      updateFave: jest.fn(),
+      updateFave: mockUpdateFave,
     }
-    wrapper = shallow(<Character {...mockProps} key='test'/>)
+    let mockExpected = {
+      homeworld: 'test earth',
+      name: 'John Adams',
+      population: 300,
+      species: 'tree frog',
+      films: ['test', 'test'],
+    }
+    wrapper = shallow(<Character {...mockProps} key={mockProps.name}/>)
 
     wrapper.find('button').simulate('click');
-    expect(mockProps.updateFave).toHaveBeenCalled();
+    expect(mockUpdateFave).toHaveBeenCalledWith(mockExpected);
   })
 })
