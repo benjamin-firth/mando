@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Character from '../Character/Character.js';
 import FilmScript from '../FilmScript/FilmScript.js';
-import './CharactersPage.scss';
 
 class CharactersPage extends Component {
   constructor(props) {

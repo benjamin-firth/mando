@@ -1,7 +1,5 @@
 import React from 'react';
-import logo from '../../logo.svg';
 import Loading from '../Loading/Loading.js';
-import './Character.scss';
 
 const Character = ({ homeworld, name, population, species, films, updateFave, isFave }) => {
   if (!name) {

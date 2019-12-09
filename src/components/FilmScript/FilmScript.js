@@ -1,6 +1,4 @@
 import React from 'react';
-import './FilmScript.scss';
-// import PropTypes from 'prop-types';
 
 export const FilmScript = ({ crawl, filmTitle }) => {
   return (
@@ -23,7 +21,3 @@ export const FilmScript = ({ crawl, filmTitle }) => {
 };
 
 export default FilmScript;
-
-// FilmScript.propTypes = {
-//   filmscript: PropTypes.object.isRequired
-// };

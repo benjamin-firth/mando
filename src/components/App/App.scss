@@ -1,13 +1,3 @@
-$main-font: 'Stardos Stencil', cursive;
-$font-color1: white;
-$font-color2: #7B7B7B;
-$secondary-background-color: #282727;
-
-@mixin new-background($url) {
-  background: no-repeat url($url);
-  background-size: cover;
-}
-
 .App {
   text-align: center;
   min-height: 100vh;

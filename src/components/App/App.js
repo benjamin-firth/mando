@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Route, NavLink } from 'react-router-dom';
-import './App.scss';
 import WelcomeForm from '../WelcomeForm/WelcomeForm.js';
 import MoviePage from '../MoviePage/MoviePage.js';
 import UserProfile from '../UserProfile/UserProfile.js';

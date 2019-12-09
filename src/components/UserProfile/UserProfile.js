@@ -1,5 +1,4 @@
 import React from 'react';
-import './UserProfile.scss';
 import { NavLink } from 'react-router-dom';
 
 const UserProfile = ({ currentUser, changePage, handleImgClick }) => {
