@@ -7,7 +7,7 @@ const Character = ({ homeworld, name, population, species, films, updateFave, is
   }
   let filmList = films.map(film => <li>{film}</li>)
   return (
-    <article className="movie">
+    <article className="character-card">
       <div>
         <h2>{name}</h2>
         <p>Homeworld: {homeworld}</p>

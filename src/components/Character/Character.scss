@@ -1,4 +1,4 @@
-.movie {
+.character-card {
   display: flex;
   justify-content: space-between;
   margin: auto;
@@ -17,11 +17,5 @@
       display: inline-block;
       height: 5vh;
     }
-  }
-  .movie-picture {
-    height: inherit;
-    width: 30vw;
-    object-fit: cover;
-    border-left: 2px solid yellow;
   }
 }
