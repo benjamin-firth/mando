@@ -66,13 +66,16 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          {currentPage !== 'WelcomeForm' && 
+          {currentPage !== 'WelcomeForm' &&
+          <>
+            <h1 className='fave-chaos'>{this.state.faveChaos.length}</h1>
             <NavLink id='favorite' to='/favorites'><img
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Dueling_lightsabers.svg/1280px-Dueling_lightsabers.svg.png"
             alt="Crossed Lightsabers"
             height="55"
             width="65"
-          /></NavLink>}
+          /></NavLink>
+          </>}
           <h1>MANDO</h1>
           {currentPage !== 'WelcomeForm' &&
             <img
