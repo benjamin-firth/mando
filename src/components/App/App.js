@@ -79,6 +79,7 @@ class App extends Component {
           <h1>MANDO</h1>
           {currentPage !== 'WelcomeForm' &&
             <img
+              className='helmet'
               onClick={() => this.handleImgClick()}
               src='https://i.ya-webdesign.com/images/mandalorian-helmet-png-4.png'
               alt='Mandalorian Helmet'

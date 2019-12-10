@@ -7,7 +7,8 @@ const Favorites = ({ faves, updateFave }) => {
       return <h1>Sorry, No Faves</h1>
     }
     let characters = faves.map(character => {
-      return <Character {...character} isFave={true} updateFave={updateFave}/>
+      return <Character {...character} isFave={true} updateFave={updateFave}
+      key={character.name}/>
     });
 
     return (

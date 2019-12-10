@@ -46,7 +46,7 @@ describe('Character', () => {
     }
     wrapper = shallow(<Character {...mockProps} key={mockProps.name}/>)
 
-    wrapper.find('button').simulate('click');
+    wrapper.find('.star').simulate('click');
     expect(mockUpdateFave).toHaveBeenCalledWith(mockExpected);
   })
 })

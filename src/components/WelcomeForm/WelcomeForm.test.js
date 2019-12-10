@@ -5,11 +5,9 @@ import WelcomeForm from './WelcomeForm.js'
 describe('Welcome Form', () => {
   let wrapper;
   let mockChangePage;
-  let mockErrorCheck;
-  
+
   beforeEach(() => {
     mockChangePage = jest.fn();
-    mockErrorCheck = jest.fn();
     wrapper = shallow(<WelcomeForm changePage={mockChangePage} history={{ push: () => true}}/>)
   })
 
@@ -57,7 +55,7 @@ describe('Welcome Form', () => {
 
   it('should run handleChange when the input is changed', () => {
     wrapper.instance().handleChange = jest.fn();
-    const mockEvent = { 
+    const mockEvent = {
       preventDefault: jest.fn(),
       target: {
         name: 'name',
@@ -72,7 +70,7 @@ describe('Welcome Form', () => {
 
   it('should run handleChange when the second input is changed', () => {
     wrapper.instance().handleChange = jest.fn();
-    const mockEvent = { 
+    const mockEvent = {
       preventDefault: jest.fn(),
       target: {
         name: 'quote',
@@ -87,7 +85,7 @@ describe('Welcome Form', () => {
 
   it('should run handleChange when the select is changed', () => {
     wrapper.instance().handleChange = jest.fn();
-    const mockEvent = { 
+    const mockEvent = {
       preventDefault: jest.fn(),
       target: {
         name: 'currentRank',
