@@ -1,25 +1,34 @@
 .movie {
+  background-color: $secondary-background-color;
+  border-radius: 5px;
   display: flex;
+  height: auto;
   justify-content: space-between;
   margin: auto;
   margin-top: 20px;
-  width: 90vw;
-  height: auto;
-  background-color: $secondary-background-color;
+  padding-left: 10px;
+  width: 80vw;
   div {
     width: 50vw;
     text-align: left;
     .character-button {
       background-color: black;
       color: white;
-      width: 40vw;
-      font-weight: bold;
       display: inline-block;
+      font-weight: bold;
       height: 5vh;
+      padding: 10px 0 0 0;
+      text-align: center;
+      text-decoration: none;
+      text-justify: center;
+      width: 40vw;
+    }
+    .character-button:hover {
+      transform: scale(1.02);
     }
   }
   .movie-picture {
-    height: inherit;
+    max-height: 220px;
     width: 30vw;
     object-fit: cover;
     border-left: 2px solid yellow;

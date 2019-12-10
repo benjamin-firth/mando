@@ -2,13 +2,23 @@
 
 .profile-box {
   align-self: flex-start;
-  background-color: $secondary-background-color;
+  background-color: #1C628E;
   display: flex;
   flex-direction: column;
   font-size: 20px;
   left: 0;
+  padding: 0 0 15px 0;
   position: absolute;
   right: 0;
   z-index: 1;
 }
 
+#welcome-form,
+#nav-link2 {
+  background-color: black;
+  border-radius: 5px;
+  color: white;
+  margin: 10px;
+  padding: 5px 10px;
+  text-decoration: none;
+}

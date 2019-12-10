@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import CharactersPage from './CharactersPage.js';
+import { getFilmData, getCharacterHomeworld, getCharacterSpecies, fetchIndividualData } from '../../apiCalls';
 
 describe('Characters Page', () => {
   let wrapper;
@@ -42,5 +43,49 @@ describe('Characters Page', () => {
   it('should return false if character is not favorited with checkFave function', () => {
     let mockCharacter = { name: 'Not Johnny' };
     expect(wrapper.instance().checkFave(mockCharacter)).toEqual(false);
+  })
+
+  describe('Promise all character data', () => {
+    let mockreturnObject;
+    let mockCharacter;
+
+    beforeEach(() => {
+      // getCharacterHomeworld = jest.fn().mockImplementation(() => {
+      //   return Promise.resolve({name: 'fake-name', population: 'fake-pop'})
+      // });
+      // getCharacterSpecies = jest.fn().mockImplementation(() => {
+      //   return Promise.resolve({ name: 'fake-speciesname' })
+      // });
+      // wrapper.instance().getFilms = jest.fn().mockImplementation(() => {
+      //   return Promise.resolve([{title: 'test-one'}, {title: 'test-two'}])
+      // })
+
+      mockCharacter = { name: 'Ben Kenobi', species: ['Human'], films: ['Billy Madison'], homeworld: 'Earth' }
+      mockreturnObject = [
+        { name: 'fake-name', population: 'fake-pop'},
+        { name: 'fake-speciesname' },
+        [{title: 'test-one'}, {title: 'test-two'}]
+      ];
+
+      window.fetch = jest.fn().mockImplementation(() => {
+        return Promise.resolve({
+          ok: true,
+          json: () => Promise.resolve(...mockreturnObject)
+        })
+      })
+    })
+
+    it('Should return a full character object', async () => {
+      const expected = {
+        name: 'Ben Kenobi',
+        homeworld: 'fake-name',
+        population: 'fake-pop',
+        species: 'fake-speciesname',
+        films: ['test-one', 'test-two']
+      }
+
+      const result = await wrapper.instance().getIndividualData(mockCharacter);
+      expect(result).toEqual(expected);
+    })
   })
 })

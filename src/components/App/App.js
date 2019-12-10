@@ -66,7 +66,13 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <NavLink id='favorite' to='/favorites'>{faveChaos.length}</NavLink>
+          {currentPage !== 'WelcomeForm' && 
+            <NavLink id='favorite' to='/favorites'><img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Dueling_lightsabers.svg/1280px-Dueling_lightsabers.svg.png"
+            alt="Crossed Lightsabers"
+            height="55"
+            width="65"
+          /></NavLink>}
           <h1>MANDO</h1>
           {currentPage !== 'WelcomeForm' && 
             <img
