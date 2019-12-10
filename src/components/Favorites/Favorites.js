@@ -10,9 +10,9 @@ const Favorites = ({ faves, updateFave }) => {
     });
 
     return (
-      <section className="main">
-      <h1>Your Faves:</h1>
-        {characters}
+      <section className="favorite">
+        <h1>Your Faves:</h1>
+          {characters}
       </section>
     )
 }
