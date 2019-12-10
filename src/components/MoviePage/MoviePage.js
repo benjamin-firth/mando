@@ -7,6 +7,7 @@ import ep4 from '../../images/ep4.jpg';
 import ep5 from '../../images/ep5.jpg';
 import ep6 from '../../images/ep6.jpg';
 import ep7 from '../../images/ep7.jpg';
+import PropTypes from 'prop-types';
 
 const images = {
   1: ep1,
@@ -39,6 +40,11 @@ const MoviePage = ({ filmData, filterMovie }) => {
       {movies}
     </section>
   )
+}
+
+MoviePage.propTypes = {
+  filmData: PropTypes.array,
+  filterMovie: PropTypes.func
 }
 
 export default MoviePage;

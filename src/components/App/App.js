@@ -5,6 +5,7 @@ import MoviePage from '../MoviePage/MoviePage.js';
 import UserProfile from '../UserProfile/UserProfile.js';
 import CharactersPage from '../CharactersPage/CharactersPage.js';
 import Favorites from '../Favorites/Favorites.js';
+import { getFilms } from '../../apiCalls.js';
 
 class App extends Component {
   constructor() {
@@ -21,8 +22,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('https://swapi.co/api/films/')
-    .then(response => response.json())
+    getFilms()
     .then(data => {
       this.setState({ filmData: data.results });
     })
@@ -66,38 +66,42 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          {currentPage !== 'WelcomeForm' && 
+          {currentPage !== 'WelcomeForm' &&
+          <>
+            <h1 className='fave-chaos'>{this.state.faveChaos.length}</h1>
             <NavLink id='favorite' to='/favorites'><img
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Dueling_lightsabers.svg/1280px-Dueling_lightsabers.svg.png"
             alt="Crossed Lightsabers"
             height="55"
             width="65"
-          /></NavLink>}
+          /></NavLink>
+          </>}
           <h1>MANDO</h1>
-          {currentPage !== 'WelcomeForm' && 
+          {currentPage !== 'WelcomeForm' &&
             <img
+              className='helmet'
               onClick={() => this.handleImgClick()}
               src='https://i.ya-webdesign.com/images/mandalorian-helmet-png-4.png'
               alt='Mandalorian Helmet'
           />}
         </header>
         <main>
-          {showUserProfile && 
-            <UserProfile 
-              changePage={this.changePage} 
-              currentUser={currentUser} 
+          {showUserProfile &&
+            <UserProfile
+              changePage={this.changePage}
+              currentUser={currentUser}
               handleImgClick={this.handleImgClick}/>}
             <Route path="/movie-page" render={() => {
               return <MoviePage
               filmData={filmData}
               filterMovie={this.filterMovie}
               />}} />
-            <Route 
-              path="/characters-page/:id" 
+            <Route
+              path="/characters-page/:id"
               render={({ match }) => getCharacters(match)}/>
-            <Route 
-              exact path="/favorites" 
-              render={() => 
+            <Route
+              exact path="/favorites"
+              render={() =>
                 <Favorites faves={faveChaos} updateFave={this.updateFaves}/>} />
             <Route exact path="/" render={({ history }) =>
               <WelcomeForm history={history} changePage={this.changePage}/>} />

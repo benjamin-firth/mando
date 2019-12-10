@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class WelcomeForm extends Component {
   constructor(props) {
@@ -61,6 +62,11 @@ class WelcomeForm extends Component {
       </form>
     )
   }
+}
+
+WelcomeForm.propTypes = {
+  history: PropTypes.object,
+  changePage: PropTypes.func
 }
 
 export default WelcomeForm;

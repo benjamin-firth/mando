@@ -1,13 +1,31 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import App from './App';
 import { shallow } from 'enzyme';
+import { getFilms } from '../../apiCalls';
+jest.mock('../../apiCalls');
 
 describe('App', () => {
   let wrapper;
 
   beforeEach(() => {
+    getFilms.mockImplementation(() => {
+      return Promise.resolve({ results: ['WE DID IT'] })
+    })
     wrapper = shallow(<App />);
+  })
+
+  it('should run getFilms when component is mounted', () => {
+    shallow(<App />);
+    expect(getFilms).toHaveBeenCalled();
+  })
+
+  it('should update state when component mounts', () => {
+    //here's the OG state.
+    expect(wrapper.state('filmData')).toEqual(['WE DID IT']);
+
+    //MOUNT IT
+
+    //CHECKNEWSTATE AND THAT GETFILMS FIRED
   })
 
   it('should update state when changePage is called', () => {
@@ -68,7 +86,7 @@ describe('App', () => {
 
     wrapper.instance().setState(defaultState);
 
-    wrapper.find('img').simulate('click');
+    wrapper.find('.helmet').simulate('click');
 
     expect(wrapper.instance().handleImgClick).toHaveBeenCalled();
   })

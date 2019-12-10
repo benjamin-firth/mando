@@ -32,10 +32,11 @@ exports[`Character should match the snapshot when there is a name 1`] = `
       </li>
     </ul>
   </div>
-  <button
+  <img
+    alt="John Adams"
+    className="star"
     onClick={[Function]}
-  >
-    Fave Dis
-  </button>
+    src="emptystar.svg"
+  />
 </article>
 `;

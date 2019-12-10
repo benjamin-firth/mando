@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export const FilmScript = ({ crawl, filmTitle }) => {
   return (
@@ -19,5 +20,10 @@ export const FilmScript = ({ crawl, filmTitle }) => {
     </div>
   )
 };
+
+FilmScript.propTypes = {
+  crawl: PropTypes.string,
+  filmTitle: PropTypes.string
+}
 
 export default FilmScript;
