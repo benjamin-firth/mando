@@ -5,6 +5,7 @@ import MoviePage from '../MoviePage/MoviePage.js';
 import UserProfile from '../UserProfile/UserProfile.js';
 import CharactersPage from '../CharactersPage/CharactersPage.js';
 import Favorites from '../Favorites/Favorites.js';
+import { getFilms } from '../../apiCalls.js';
 
 class App extends Component {
   constructor() {
@@ -21,8 +22,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('https://swapi.co/api/films/')
-    .then(response => response.json())
+    getFilms()
     .then(data => {
       this.setState({ filmData: data.results });
     })
@@ -68,7 +68,7 @@ class App extends Component {
         <header className="App-header">
           <NavLink id='favorite' to='/favorites'>{faveChaos.length}</NavLink>
           <h1>MANDO</h1>
-          {currentPage !== 'WelcomeForm' && 
+          {currentPage !== 'WelcomeForm' &&
             <img
               onClick={() => this.handleImgClick()}
               src='https://i.ya-webdesign.com/images/mandalorian-helmet-png-4.png'
@@ -76,22 +76,22 @@ class App extends Component {
           />}
         </header>
         <main>
-          {showUserProfile && 
-            <UserProfile 
-              changePage={this.changePage} 
-              currentUser={currentUser} 
+          {showUserProfile &&
+            <UserProfile
+              changePage={this.changePage}
+              currentUser={currentUser}
               handleImgClick={this.handleImgClick}/>}
             <Route path="/movie-page" render={() => {
               return <MoviePage
               filmData={filmData}
               filterMovie={this.filterMovie}
               />}} />
-            <Route 
-              path="/characters-page/:id" 
+            <Route
+              path="/characters-page/:id"
               render={({ match }) => getCharacters(match)}/>
-            <Route 
-              exact path="/favorites" 
-              render={() => 
+            <Route
+              exact path="/favorites"
+              render={() =>
                 <Favorites faves={faveChaos} updateFave={this.updateFaves}/>} />
             <Route exact path="/" render={({ history }) =>
               <WelcomeForm history={history} changePage={this.changePage}/>} />

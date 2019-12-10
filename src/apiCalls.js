@@ -37,3 +37,13 @@ export const fetchIndividualData = (character) => {
       return res.json()
     })
 }
+
+export const getFilms = () => {
+  return fetch('https://swapi.co/api/films/')
+  .then(response => {
+    if (!response.ok) {
+      throw Error('BEN THERE IS AN ERROR');
+    }
+    return response.json()
+  })
+}

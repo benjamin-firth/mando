@@ -1,4 +1,4 @@
-import { getFilmData, getCharacterHomeworld, getCharacterSpecies, fetchIndividualData } from './apiCalls';
+import { getFilmData, getCharacterHomeworld, getCharacterSpecies, fetchIndividualData, getFilms } from './apiCalls';
 
 describe('API Calls', () => {
   describe('getFilmData', () => {
@@ -151,6 +151,39 @@ describe('API Calls', () => {
       })
 
       expect(fetchIndividualData(mockUrl)).rejects.toEqual(Error('BEN GET YOUR NIMBUS 2000'))
+    })
+  })
+
+  describe('getFilms', () => {
+    let mockResponse;
+
+    beforeEach(() => {
+      mockResponse = [
+        { film: 'weirdurl' }
+      ];
+
+      window.fetch = jest.fn().mockImplementation(() => {
+        return Promise.resolve({
+          ok: true,
+          json: () => Promise.resolve(mockResponse)
+        })
+      })
+    })
+
+    it('should be run with the correct URL', () => {
+      getFilms();
+      expect(window.fetch).toHaveBeenCalledWith('https://swapi.co/api/films/');
+    })
+
+    it('should return a response with correct array', () => {
+      expect(getFilms()).resolves.toEqual(mockResponse);
+    })
+
+    it('should return an error when sad path occurs', () => {
+      window.fetch = jest.fn().mockImplementation(() => {
+        return Promise.resolve({ ok: false })
+      })
+      expect(getFilms()).rejects.toEqual(Error('BEN THERE IS AN ERROR'))
     })
   })
 })
