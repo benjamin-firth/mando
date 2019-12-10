@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Character from '../Character/Character.js';
 import FilmScript from '../FilmScript/FilmScript.js';
+import Loading from '../Loading/Loading.js';
 import { getFilmData, getCharacterHomeworld, getCharacterSpecies, fetchIndividualData } from '../../apiCalls';
 
 class CharactersPage extends Component {
@@ -8,6 +9,7 @@ class CharactersPage extends Component {
     super(props);
     this.state = {
       characters: props.currentMovie.characters,
+      loading: false
     }
   }
 
@@ -32,7 +34,7 @@ class CharactersPage extends Component {
     let films = this.getFilms(character.films);
 
     return Promise.all([homeworld, species, films])
-      .then(fetches => {
+    .then(fetches => {
         let filmNames = fetches[2].map(movie => movie.title);
         let fullCharacterObject = {
           name: character.name,
@@ -42,7 +44,7 @@ class CharactersPage extends Component {
           films: filmNames
         }
         return fullCharacterObject;
-      })
+      })      
   }
 
   checkFave = (character) => {
@@ -53,32 +55,33 @@ class CharactersPage extends Component {
     }
   }
 
-  componentDidMount() {
+  componentDidMount() { 
     let characters = this.findCharacters();
     let promises = characters.map(character => {
       return fetchIndividualData(character)
         .then(data => this.getIndividualData(data))
+        .catch(error => console.log(error))
     })
     Promise.all(promises)
       .then(data => {
         this.setState({ characters: data })
-      })
+    })
   }
 
-  render() {
+  render() {  
     let characters = this.state.characters.map(character => {
       return <Character {...character} isFave={this.checkFave(character)} updateFave={this.props.updateFave} key={character.name} />
     })
 
     return (
       <section className="characters-container">
-        <FilmScript
-          crawl={this.props.currentMovie.opening_crawl}
-          filmTitle={this.props.currentMovie.title}/>
-        <section className="characters">
-          {characters}
+          <FilmScript
+            crawl={this.props.currentMovie.opening_crawl}
+            filmTitle={this.props.currentMovie.title}/>
+          <section className="characters">
+            {characters}
+          </section>
         </section>
-      </section>
     )
   }
 }
