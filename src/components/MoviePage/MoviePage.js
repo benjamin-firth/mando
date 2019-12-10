@@ -1,15 +1,21 @@
 import React from 'react';
 import Movie from '../Movie/Movie';
-//import the 7 movie photos...
-//match each movie based on episode_id
+import ep1 from '../../images/ep1.jpg';
+import ep2 from '../../images/ep2.jpg';
+import ep3 from '../../images/ep3.jpg';
+import ep4 from '../../images/ep4.jpg';
+import ep5 from '../../images/ep5.jpg';
+import ep6 from '../../images/ep6.jpg';
+import ep7 from '../../images/ep7.jpg';
+
 const images = {
-  1: 'https://media.proprofs.com/images/QM/user_images/1826446/1496915404.jpg',
-  2: 'https://www.kickassfacts.com/wp-content/uploads/2015/12/Attack-of-the-Clones.jpg',
-  3: 'https://i.kym-cdn.com/entries/icons/original/000/022/048/Revenge_of_the_Sith.jpg',
-  4: 'https://www.gameaxis.com/wp-content/uploads/2018/12/maxresdefault1.jpg',
-  5: 'https://i.ytimg.com/vi/vVulaCFNL4A/maxresdefault.jpg',
-  6: 'https://i.ytimg.com/vi/AL2N4Bfl4Ec/maxresdefault.jpg',
-  7: 'http://rwrant.co.za/wp-content/uploads/2014/02/Star-Wars-7.jpg'
+  1: ep1,
+  2: ep2,
+  3: ep3,
+  4: ep4,
+  5: ep5,
+  6: ep6,
+  7: ep7
 }
 
 const MoviePage = ({ filmData, filterMovie }) => {

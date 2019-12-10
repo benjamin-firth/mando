@@ -6,17 +6,17 @@ exports[`MoviePage should match snapshot 1`] = `
 >
   <Movie
     episode={1}
-    image="https://media.proprofs.com/images/QM/user_images/1826446/1496915404.jpg"
+    image="ep1.jpg"
     key="1"
   />
   <Movie
     episode={2}
-    image="https://www.kickassfacts.com/wp-content/uploads/2015/12/Attack-of-the-Clones.jpg"
+    image="ep2.jpg"
     key="2"
   />
   <Movie
     episode={3}
-    image="https://i.kym-cdn.com/entries/icons/original/000/022/048/Revenge_of_the_Sith.jpg"
+    image="ep3.jpg"
     key="3"
   />
 </section>
