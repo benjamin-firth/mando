@@ -35,23 +35,19 @@ If given more time:
 
 ### ScreenShots
 #### Welcome Page
-![homepage.png](src/images/homepage.png)
+![welcomepage.gif](src/images/welcomepage.gif)
 
 #### Movie Page
-![customerpage.png](src/images/customer.png)
+![moviepage.gif](src/images/moviepage.gif)
 
 #### Character Loading
-![managerpage.png](src/images/manager.png)
+![characterloading.gif](src/images/characterloading.gif)
 
 #### Character Fully Fetched
-![managerpage.png](src/images/manager.png)
+![characterloaded.gif](src/images/characterloaded.gif)
 
 #### Favorites Page
-![managerpage.png](src/images/manager.png)
-
-#### UserProfile Expanded
-![managerpage.png](src/images/manager.png)
-
+![favoritepage.gif](src/images/favoritepage.gif)
 
 ## Collaborators
 
