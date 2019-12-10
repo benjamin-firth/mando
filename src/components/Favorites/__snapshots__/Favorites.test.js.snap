@@ -2,7 +2,7 @@
 
 exports[`Favorites should match snapshot when there are favorites 1`] = `
 <section
-  className="main"
+  className="favorite"
 >
   <h1>
     Your Faves:

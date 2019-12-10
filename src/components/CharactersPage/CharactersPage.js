@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Character from '../Character/Character.js';
 import FilmScript from '../FilmScript/FilmScript.js';
-import Loading from '../Loading/Loading.js';
 import { getFilmData, getCharacterHomeworld, getCharacterSpecies, fetchIndividualData } from '../../apiCalls';
+import PropTypes from 'prop-types';
 
 class CharactersPage extends Component {
   constructor(props) {
@@ -44,7 +44,7 @@ class CharactersPage extends Component {
           films: filmNames
         }
         return fullCharacterObject;
-      })      
+      })
   }
 
   checkFave = (character) => {
@@ -55,7 +55,7 @@ class CharactersPage extends Component {
     }
   }
 
-  componentDidMount() { 
+  componentDidMount() {
     let characters = this.findCharacters();
     let promises = characters.map(character => {
       return fetchIndividualData(character)
@@ -68,7 +68,7 @@ class CharactersPage extends Component {
     })
   }
 
-  render() {  
+  render() {
     let characters = this.state.characters.map(character => {
       return <Character {...character} isFave={this.checkFave(character)} updateFave={this.props.updateFave} key={character.name} />
     })
@@ -84,6 +84,11 @@ class CharactersPage extends Component {
         </section>
     )
   }
+}
+
+CharactersPage.propTypes = {
+  characters: PropTypes.array,
+  loading: PropTypes.bool
 }
 
 export default CharactersPage;

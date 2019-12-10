@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const Movie = ({ title, episode, release, opening, image, filterMovie }) => {
   return (
@@ -13,6 +14,15 @@ const Movie = ({ title, episode, release, opening, image, filterMovie }) => {
       <img src={image} className="movie-picture" alt="Movie Poster" />
     </article>
   )
+}
+
+Movie.propTypes = {
+  title: PropTypes.string,
+  episode: PropTypes.number,
+  release: PropTypes.string,
+  opening: PropTypes.string,
+  image: PropTypes.string,
+  filterMovie: PropTypes.func
 }
 
 export default Movie;

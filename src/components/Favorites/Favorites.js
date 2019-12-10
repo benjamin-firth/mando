@@ -1,5 +1,6 @@
 import React from 'react';
 import Character from '../Character/Character.js';
+import PropTypes from 'prop-types';
 
 const Favorites = ({ faves, updateFave }) => {
     if (faves.length === 0) {
@@ -15,6 +16,11 @@ const Favorites = ({ faves, updateFave }) => {
           {characters}
       </section>
     )
+}
+
+Favorites.propTypes = {
+  faves: PropTypes.array,
+  updateFave: PropTypes.func
 }
 
 export default Favorites;

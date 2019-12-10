@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const UserProfile = ({ currentUser, changePage, handleImgClick }) => {
   return (
@@ -13,6 +14,12 @@ const UserProfile = ({ currentUser, changePage, handleImgClick }) => {
       </div>
     </section>
   )
+}
+
+UserProfile.propTypes = {
+  currentUser: PropTypes.object,
+  changePage: PropTypes.func,
+  handleImgClick: PropTypes.func
 }
 
 export default UserProfile;
