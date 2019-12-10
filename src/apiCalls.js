@@ -27,3 +27,13 @@ export const getCharacterSpecies = (species) => {
       return res.json()
     })
 }
+
+export const fetchIndividualData = (character) => {
+  return fetch(character)
+    .then(res => {
+      if (!res.ok) {
+        throw Error('BEN GET YOUR NIMBUS 2000');
+      }
+      return res.json()
+    })
+}

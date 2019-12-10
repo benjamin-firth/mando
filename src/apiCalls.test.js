@@ -1,4 +1,4 @@
-import { getFilmData, getCharacterHomeworld, getCharacterSpecies } from './apiCalls';
+import { getFilmData, getCharacterHomeworld, getCharacterSpecies, fetchIndividualData } from './apiCalls';
 
 describe('API Calls', () => {
   describe('getFilmData', () => {
@@ -112,6 +112,45 @@ describe('API Calls', () => {
         })
       })
       expect(getCharacterSpecies(mockUrl)).rejects.toEqual(Error('WE ARE TOO POWERFUL'));
+    })
+  })
+
+  describe('fetchIndividualData', () => {
+    let mockUrl;
+    let mockResponse;
+
+    beforeEach(() => {
+      mockUrl = 'Run from Haboobs';
+      mockResponse = {
+        name: 'TRA$HA'
+      }
+
+      window.fetch = jest.fn().mockImplementation(() => {
+        return Promise.resolve({
+          ok: true,
+          json: ()=> Promise.resolve(mockResponse)
+        })
+      })
+    })
+
+    it('should be run with correct URL', () => {
+      fetchIndividualData(mockUrl);
+
+      expect(window.fetch).toHaveBeenCalledWith(mockUrl);
+    })
+
+    it('should return correct response when fetchIndividualData is invoked', () => {
+      expect(fetchIndividualData(mockUrl)).resolves.toEqual(mockResponse);
+    })
+
+    it('should return error message if response has a false ok', () => {
+      window.fetch = jest.fn().mockImplementation(() => {
+        return Promise.resolve({
+          ok: false
+        })
+      })
+
+      expect(fetchIndividualData(mockUrl)).rejects.toEqual(Error('BEN GET YOUR NIMBUS 2000'))
     })
   })
 })

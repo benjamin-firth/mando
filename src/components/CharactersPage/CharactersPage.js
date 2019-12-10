@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Character from '../Character/Character.js';
 import FilmScript from '../FilmScript/FilmScript.js';
-import { getFilmData, getCharacterHomeworld, getCharacterSpecies } from '../../apiCalls';
+import { getFilmData, getCharacterHomeworld, getCharacterSpecies, fetchIndividualData } from '../../apiCalls';
 
 class CharactersPage extends Component {
   constructor(props) {
@@ -56,8 +56,7 @@ class CharactersPage extends Component {
   componentDidMount() {
     let characters = this.findCharacters();
     let promises = characters.map(character => {
-      return fetch(character)
-        .then(res => res.json())
+      return fetchIndividualData(character)
         .then(data => this.getIndividualData(data))
     })
     Promise.all(promises)
