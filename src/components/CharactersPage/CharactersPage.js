@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Character from '../Character/Character.js';
 import FilmScript from '../FilmScript/FilmScript.js';
+import { getFilmData, getCharacterHomeworld, getCharacterSpecies, fetchIndividualData } from '../../apiCalls';
 
 class CharactersPage extends Component {
   constructor(props) {
@@ -20,22 +21,15 @@ class CharactersPage extends Component {
     return firstTen;
   }
 
-  getFilmData = (films) => {
-    let filmPromises = films.map(film => {
-      return fetch(film)
-        .then(res => res.json())
-    })
+  getFilms = (films) => {
+    let filmPromises = films.map(film => getFilmData(film))
     return Promise.all(filmPromises)
   }
 
   getIndividualData = (character) => {
-    let homeworld = fetch(character.homeworld)
-                      .then(res => res.json())
-
-    let species = fetch(character.species[0])
-                      .then(res => res.json())
-
-    let films = this.getFilmData(character.films);
+    let homeworld = getCharacterHomeworld(character.homeworld);
+    let species = getCharacterSpecies(character.species[0]);
+    let films = this.getFilms(character.films);
 
     return Promise.all([homeworld, species, films])
       .then(fetches => {
@@ -62,8 +56,7 @@ class CharactersPage extends Component {
   componentDidMount() {
     let characters = this.findCharacters();
     let promises = characters.map(character => {
-      return fetch(character)
-        .then(res => res.json())
+      return fetchIndividualData(character)
         .then(data => this.getIndividualData(data))
     })
     Promise.all(promises)
@@ -79,12 +72,12 @@ class CharactersPage extends Component {
 
     return (
       <section className="characters-container">
-        <FilmScript 
+        <FilmScript
           crawl={this.props.currentMovie.opening_crawl}
           filmTitle={this.props.currentMovie.title}/>
         <section className="characters">
           {characters}
-        </section>  
+        </section>
       </section>
     )
   }
